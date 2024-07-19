@@ -1,12 +1,12 @@
 # Redirects from what the browser requests to what we serve
-/
-/live-event
-/perticular-event-b
-/landing-design-a-2
-/perticular-event-a
-/categories-page
-/sign-in
-/event-listing
-/profile-page
-/search-bar
-/login
+/                       /
+/live-event             /live-event           
+/perticular-event-b     /perticular-event-b
+/landing-design-a-2     /landing-design-a-2
+/perticular-event-a     /perticular-event-a
+/categories-page        /categories-page
+/sign-in                /sign-in
+/event-listing          /event-listing
+/profile-page           /profile-page
+/search-bar             /search-bar
+/login                  /login
