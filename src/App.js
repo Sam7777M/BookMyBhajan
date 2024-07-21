@@ -107,7 +107,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<LogIn />} />
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path='/home' element={<PrivateRoute element={<FinalDesign />} />} />
+      <Route path='/' element={<PrivateRoute element={<FinalDesign />} />} />
       <Route path="/live-event" element={<PrivateRoute element={<LiveEvent />} />} />
       <Route path="/perticular-event-b" element={<PrivateRoute element={<PerticularEventB />} />} />
       <Route path="/landing-design-a-2" element={<PrivateRoute element={<LandingDesign />} />} />
