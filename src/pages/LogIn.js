@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import {
   Button,
   TextField,
@@ -10,8 +10,23 @@ import FirstFold from "../components/FirstFold4";
 import { useNavigate } from "react-router-dom";
 import SearchBox1 from "../components/SearchBox1";
 import Footer from "../components/Footer1";
+import { handleError, handleSuccess } from "../utils";
 
 const LogIn = () => {
+
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: ''
+  })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginInfo((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(loginInfo,"!!!!")
+  };
+
   const navigate = useNavigate();
 
   const onNoAccountClick = useCallback(() => {
@@ -21,6 +36,42 @@ const LogIn = () => {
   const onGroupButtonClick = useCallback(() => {
     navigate("/profile-page");
   }, [navigate]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const { email, password } = loginInfo;
+    if (!email || !password) {
+        return handleError('email and password are required')
+    }
+    try {
+        const url = `http://localhost:8000/auth/login`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginInfo)
+        });
+        const result = await response.json();
+        const { success, message, jwtToken, name, error } = result;
+        if (success) {
+            handleSuccess(message);
+            localStorage.setItem('token', jwtToken);
+            localStorage.setItem('loggedInUser', name);
+            setTimeout(() => {
+                navigate('/home')
+            }, 1000)
+        } else if (error) {
+            const details = error?.details[0].message;
+            handleError(details);
+        } else if (!success) {
+            handleError(message);
+        }
+        console.log(result,"!!!!1");
+    } catch (err) {
+        handleError(err);
+    }
+}
 
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-end justify-start gap-[55px] leading-[normal] tracking-[normal] mq750:gap-[27px]">
@@ -96,6 +147,11 @@ const LogIn = () => {
                 <TextField
                   className="[border:none] bg-[transparent] self-stretch h-[57px] relative shrink-0"
                   variant="outlined"
+                  label="Phone no. or email address"
+                  name="email"
+                  value={loginInfo.email}
+                  onChange={handleChange}
+                  required
                   sx={{
                     "& fieldset": { borderColor: "#2c9cf0" },
                     "& .MuiInputBase-root": {
@@ -105,9 +161,6 @@ const LogIn = () => {
                     },
                   }}
                 />
-                <div className="w-[302px] absolute !m-[0] bottom-[19px] left-[25px] text-sm font-light text-gray-300 inline-block z-[1]">
-                  Phone no. or email address
-                </div>
               </div>
             </div>
             <div className="self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-1.5 gap-[12px] text-base">
@@ -118,6 +171,10 @@ const LogIn = () => {
                 <TextField
                   className="[border:none] bg-[transparent] self-stretch h-[57px] relative shrink-0"
                   variant="outlined"
+                  name="password"
+                  value={loginInfo.password}
+                  onChange={handleChange}
+                  required
                   sx={{
                     "& fieldset": { borderColor: "#adadad" },
                     "& .MuiInputBase-root": {
@@ -127,9 +184,7 @@ const LogIn = () => {
                     },
                   }}
                 />
-                <div className="w-[302px] absolute !m-[0] bottom-[19px] left-[25px] text-sm font-light text-gray-300 inline-block z-[1]">
-                  Password
-                </div>
+                
               </div>
               <div className="self-stretch flex flex-row items-start justify-end text-smi text-cornflowerblue">
                 <div className="relative inline-block min-w-[108px] z-[7]">
@@ -149,9 +204,9 @@ const LogIn = () => {
                 "&:hover": { background: "#ff5f17" },
                 height: 54,
               }}
-              onClick={onGroupButtonClick}
+              onClick={handleLogin}
             >
-              Log in
+              Log inn
             </Button>
           </div>
         </div>

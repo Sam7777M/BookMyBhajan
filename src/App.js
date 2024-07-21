@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Routes,
   Route,
   useNavigationType,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import FinalDesign from "./pages/FinalDesign";
 import LiveEvent from "./pages/LiveEvent";
@@ -16,6 +17,7 @@ import EventListing1 from "./pages/EventListing";
 import ProfilePage from "./pages/ProfilePage";
 import SearchBar from "./pages/SearchBar";
 import LogIn from "./pages/LogIn";
+import RefrshHandler from "./RefrshHandler";
 
 function App() {
   const action = useNavigationType();
@@ -93,20 +95,29 @@ function App() {
     }
   }, [pathname]);
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/login" />
+  }
+  console.log(isAuthenticated,"!!!!2")
+
   return (
+    <>
+    <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
     <Routes>
-      <Route path="/" element={<FinalDesign />} />
-      <Route path="/live-event" element={<LiveEvent />} />
-      <Route path="/perticular-event-b" element={<PerticularEventB />} />
-      <Route path="/landing-design-a-2" element={<LandingDesign />} />
-      <Route path="/perticular-event-a" element={<PerticularEvent />} />
-      <Route path="/categories-page" element={<SpeakersPage />} />
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/event-listing" element={<EventListing1 />} />
-      <Route path="/profile-page" element={<ProfilePage />} />
-      <Route path="/search-bar" element={<SearchBar />} />
       <Route path="/login" element={<LogIn />} />
+      <Route path="/sign-in" element={<SignIn />} />
+      <Route path='/home' element={<PrivateRoute element={<FinalDesign />} />} />
+      <Route path="/live-event" element={<PrivateRoute element={<LiveEvent />} />} />
+      <Route path="/perticular-event-b" element={<PrivateRoute element={<PerticularEventB />} />} />
+      <Route path="/landing-design-a-2" element={<PrivateRoute element={<LandingDesign />} />} />
+      <Route path="/perticular-event-a" element={<PrivateRoute element={<PerticularEvent />} />} />
+      <Route path="/categories-page" element={<PrivateRoute element={<SpeakersPage />} />} />
+      <Route path="/event-listing" element={<PrivateRoute element={<EventListing1 />} />} />
+      <Route path="/profile-page" element={<PrivateRoute element={<ProfilePage />} />} />
+      <Route path="/search-bar" element={<PrivateRoute element={<SearchBar />} />} />
     </Routes>
+    </>
   );
 }
 export default App;
