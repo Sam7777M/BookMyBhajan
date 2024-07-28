@@ -104,6 +104,7 @@ function App() {
   return (
     <>
     <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
+    
     <Routes>
       <Route path="/login" element={<LogIn />} />
       <Route path="/sign-in" element={<SignIn />} />
