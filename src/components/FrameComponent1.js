@@ -17,6 +17,7 @@ const FrameComponent1 = ({ className = "" }) => {
   return (
     <section
       className={`self-stretch flex flex-col items-start justify-start gap-[64px] max-w-full shrink-0 text-left text-21xl text-goldenrod font-montserrat mq750:gap-[32px] mq450:gap-[16px] ${className}`}
+      style={{ marginTop: "-200px" }} // Move content up further
     >
       <div className="self-stretch flex flex-row items-start justify-center py-0 px-5 box-border max-w-full">
         <div
@@ -29,8 +30,8 @@ const FrameComponent1 = ({ className = "" }) => {
             </h1>
             <div className="w-[544px] flex flex-col items-start justify-start pt-0.5 px-0 pb-0 box-border max-w-full text-sm text-darkorange-200 font-dm-sans">
               <div className="self-stretch flex flex-row items-start justify-start gap-[20px] mq750:flex-wrap">
-                <div className="flex-1 rounded-31xl bg-bisque flex flex-row items-start justify-between py-3.5 px-[25px] box-border min-w-[109px] gap-[20px]">
-                  <div className="h-[46px] w-[168px] relative rounded-31xl bg-bisque hidden" />
+                <div className="flex-1 rounded-[20px] bg-bisque flex flex-row items-start justify-between py-3.5 px-[25px] box-border min-w-[109px] gap-[20px] shadow-lg">
+                  <div className="h-[46px] w-[168px] relative rounded-[20px] bg-bisque hidden" />
                   <div className="relative font-medium inline-block min-w-[68px] z-[1]">
                     Weekdays
                   </div>
@@ -42,8 +43,8 @@ const FrameComponent1 = ({ className = "" }) => {
                     />
                   </div>
                 </div>
-                <div className="flex-1 rounded-31xl bg-bisque flex flex-row items-start justify-between py-3.5 px-[25px] box-border min-w-[109px] gap-[20px]">
-                  <div className="h-[46px] w-[168px] relative rounded-31xl bg-bisque hidden" />
+                <div className="flex-1 rounded-[20px] bg-bisque flex flex-row items-start justify-between py-3.5 px-[25px] box-border min-w-[109px] gap-[20px] shadow-lg">
+                  <div className="h-[46px] w-[168px] relative rounded-[20px] bg-bisque hidden" />
                   <div className="relative font-medium inline-block min-w-[74px] z-[1]">
                     Event Type
                   </div>
@@ -55,8 +56,8 @@ const FrameComponent1 = ({ className = "" }) => {
                     />
                   </div>
                 </div>
-                <div className="rounded-31xl bg-bisque flex flex-row items-start justify-start py-3.5 px-[25px] gap-[17px]">
-                  <div className="h-[46px] w-[168px] relative rounded-31xl bg-bisque hidden" />
+                <div className="rounded-[20px] bg-bisque flex flex-row items-start justify-start py-3.5 px-[25px] gap-[17px] shadow-lg">
+                  <div className="h-[46px] w-[168px] relative rounded-[20px] bg-bisque hidden" />
                   <div className="relative font-medium inline-block min-w-[91px] z-[1]">
                     Any Category
                   </div>
@@ -72,7 +73,8 @@ const FrameComponent1 = ({ className = "" }) => {
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[62.5px] max-w-full lg:gap-[31px] mq750:gap-[16px]">
-            <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[28.5px_26.5px] min-h-[698px] max-w-full">
+            <div className="relative self-stretch flex flex-row flex-wrap items-start justify-start gap-[28.5px_26.5px] min-h-[698px] max-w-full">
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-bisque to-transparent rounded-b-[20px] z-[-1]" />
               <GroupComponent2
                 eventCardImage="/rectangle-12-1@2x.png"
                 aPR="APR"
@@ -81,6 +83,7 @@ const FrameComponent1 = ({ className = "" }) => {
                 propMinWidth="326px"
                 propWidth="343px"
                 onGroupContainerClick1={onGroupContainerClick}
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
               <GroupComponent2
                 eventCardImage="/rectangle-12-2@2x.png"
@@ -90,11 +93,13 @@ const FrameComponent1 = ({ className = "" }) => {
                 propMinWidth="326px"
                 propWidth="343px"
                 onGroupContainerClick1={onGroupContainerClick}
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
               <GroupComponent1
                 rectangle12="/rectangle-12-3@2x.png"
                 propMinWidth="326px"
                 propWidth="343px"
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
               <GroupComponent
                 rectangle12="/rectangle-12-4@2x.png"
@@ -105,6 +110,7 @@ const FrameComponent1 = ({ className = "" }) => {
                 propPadding="unset"
                 propWidth="343px"
                 propFlex="unset"
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
               <GroupComponent
                 rectangle12="/rectangle-12-5@2x.png"
@@ -115,25 +121,28 @@ const FrameComponent1 = ({ className = "" }) => {
                 propPadding="unset"
                 propWidth="343px"
                 propFlex="unset"
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
               <GroupComponent1
                 rectangle12="/rectangle-12-6@2x.png"
                 propMinWidth="326px"
                 propWidth="343px"
+                className="transition-transform transform hover:scale-105 rounded-[20px] shadow-lg relative z-[1]"
               />
             </div>
             <div className="w-[1038px] h-[60px] flex flex-row items-start justify-center py-0 px-5 box-border max-w-full">
               <Button
-                className="self-stretch w-[182px] shadow-[0px_10px_50px_rgba(61,_55,_241,_0.25)]"
+                className="self-stretch w-[182px]" // Removed shadow
                 variant="outlined"
                 sx={{
                   textTransform: "none",
                   color: "#ff5f17",
-                  fontSize: "18",
+                  fontSize: "18px",
                   borderColor: "#ff5f17",
                   borderRadius: "50px",
                   "&:hover": { borderColor: "#ff5f17" },
                   width: 182,
+                  boxShadow: "none", // Removed shadow
                 }}
               >
                 Load More
@@ -156,3 +165,5 @@ FrameComponent1.propTypes = {
 };
 
 export default FrameComponent1;
+
+

@@ -18,7 +18,7 @@ const SearchBox1 = ({ className = "" }) => {
         <div className="flex flex-col items-start justify-start py-0 pr-5 pl-0 gap-[11px]">
           <div className="relative inline-block min-w-[40px] z-[1]">Place</div>
           <h3 className="m-0 relative text-3xl font-bold font-inherit inline-block min-w-[105px] z-[1] mq450:text-lg">
-            Indonesia
+            India
           </h3>
         </div>
         <div className="flex flex-col items-start justify-start gap-[11px]">

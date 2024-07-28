@@ -36,10 +36,12 @@ const CreateEvents = ({
           <h1 className="m-0 self-stretch relative text-inherit font-bold font-inherit mq1050:text-8xl mq450:text-xl">
             {listYourOwnEvent}
           </h1>
-          <div className="w-[382px] relative text-lg text-gray-400 inline-block max-w-full">{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}</div>
+          <div className="w-[382px] relative text-lg text-gray-400 inline-block max-w-full">
+            {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}
+          </div>
         </div>
         <Button
-          className="w-[302px] h-[60px] shadow-[0px_10px_50px_rgba(61,_55,_241,_0.25)] mq450:pl-5 mq450:pr-5 mq450:box-border"
+          className="w-[302px] h-[60px] mq450:pl-5 mq450:pr-5 mq450:box-border"
           variant="contained"
           sx={{
             textTransform: "none",
@@ -50,6 +52,7 @@ const CreateEvents = ({
             "&:hover": { background: "#fe9509" },
             width: 302,
             height: 60,
+            boxShadow: 'none', // Remove box shadow
           }}
         >
           Create Events

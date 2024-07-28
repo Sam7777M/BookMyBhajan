@@ -1,4 +1,6 @@
+import { useCallback } from "react";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const FrameComponent3 = ({
@@ -6,6 +8,13 @@ const FrameComponent3 = ({
   group227,
   listYourEventInJustOneCli,
 }) => {
+  const navigate = useNavigate();
+
+  // Define the click handler function
+  const handleBookNowClick = useCallback(() => {
+    navigate("/perticular-event-a"); // Update the path as needed
+  }, [navigate]);
+
   return (
     <div
       className={`self-stretch flex flex-row items-start justify-center py-0 pr-5 pl-[43px] box-border max-w-full text-left text-base text-black font-poppins mq750:pl-[21px] mq750:box-border ${className}`}
@@ -24,6 +33,7 @@ const FrameComponent3 = ({
             "&:hover": { background: "#ff5f17" },
             height: 48,
           }}
+          onClick={handleBookNowClick} // Attach the click handler
         >
           {group227}
         </Button>

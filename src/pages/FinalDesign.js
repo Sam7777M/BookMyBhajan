@@ -27,12 +27,14 @@ const FinalDesign = () => {
             <BlogList
               postImage="/rectangle-43@2x.png"
               strategiesToFindYourInner="6 Strategies to Find Your Inner Peace and get Enlightenment for Your Life"
+              className="transform transition-transform duration-300 hover:scale-105"
             />
             <BlogList
               postImage="/rectangle-43-1@2x.png"
               strategiesToFindYourInner="Connecting with God inside us and Asking Ways for better living of Life Values"
+              className="transform transition-transform duration-300 hover:scale-105"
             />
-            <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
+            <div className="flex flex-col items-start justify-start gap-[20px] max-w-full transform transition-transform duration-300 hover:scale-105">
               <img
                 className="self-stretch h-[210px] relative rounded-xl max-w-full overflow-hidden shrink-0 object-cover"
                 loading="lazy"
@@ -45,7 +47,7 @@ const FinalDesign = () => {
               </b>
               <div className="self-stretch relative text-base leading-[150%] text-black">
                 Sekarang, kamu bisa produksi tiket fisik untuk eventmu bersama
-                Bostiketbos. Hanya perlu mengikuti beberapa langkah mudah.
+                Bostiketbos. Hanya perlu mengikuti beberapa langkah mudah .
               </div>
               <div className="self-stretch relative text-sm leading-[150%] text-darkgray-200">
                 12 Mar - Jhon Doe
@@ -54,15 +56,15 @@ const FinalDesign = () => {
           </div>
           <div className="self-stretch h-[60px] flex flex-row items-start justify-center py-0 px-5 box-border">
             <Button
-              className="self-stretch w-[182px] shadow-[0px_10px_50px_rgba(61,_55,_241,_0.25)]"
+              className="self-stretch w-[182px] border-[2px] border-solid border-[#ff5f17] shadow-none"
               variant="outlined"
               sx={{
                 textTransform: "none",
                 color: "#ff5f17",
-                fontSize: "18",
+                fontSize: "18px",
                 borderColor: "#ff5f17",
                 borderRadius: "50px",
-                "&:hover": { borderColor: "#ff5f17" },
+                "&:hover": { borderColor: "#ff5f17", boxShadow: "0px 10px 20px rgba(61, 55, 241, 0.25)" },
                 width: 182,
               }}
             >
@@ -77,3 +79,5 @@ const FinalDesign = () => {
 };
 
 export default FinalDesign;
+
+

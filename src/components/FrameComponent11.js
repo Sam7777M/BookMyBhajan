@@ -8,7 +8,7 @@ const FrameComponent11 = ({ className = "" }) => {
     >
       <div className="self-stretch flex flex-row items-start justify-between max-w-full gap-[20px] mq1050:flex-wrap">
         <WatchLiveInnerWrapper
-          watchLiveSatsang="Satsang by (Sadguru)"
+          watchLiveSatsang="Watch Live Satsang"
           theSatsangChannel="Aug 16 • Wed • 3hr • (11:00am-3:00pm)"
           propWidth="573px"
           propMinWidth="573px"
@@ -30,12 +30,6 @@ const FrameComponent11 = ({ className = "" }) => {
                 </h2>
               </div>
             </div>
-            <div className="self-stretch flex flex-row items-start justify-end py-0 px-[5px] text-xl text-black">
-              <h3 className="m-0 relative text-inherit font-medium font-inherit mq450:text-base">
-                <span>Expected Attendees :</span>
-                <span className="text-chocolate">{` 200+ `}</span>
-              </h3>
-            </div>
           </div>
         </div>
       </div>
@@ -50,11 +44,11 @@ const FrameComponent11 = ({ className = "" }) => {
               <span>]</span>
             </p>
             <p className="m-0">&nbsp;</p>
-            <p className="m-0">
+            <p className="m-0"> 
               Nunc vulputate libero et velit interdum, ac aliquet odio
               mattis.Corem ipsum dolor sit amet, consectetur adipiscing elit.
               Nunc vulputate libero et velit interdum, ac aliquet odio
-              mattis.Corem ipsum dolor sit amet.
+              mattis.Corem ipsum dolor sit amet.Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Corem ipsum dolor sit amet.
             </p>
           </h3>
           <h3 className="m-0 w-[559px] relative text-inherit inline-block max-w-full font-inherit mq450:text-base">
@@ -86,21 +80,6 @@ const FrameComponent11 = ({ className = "" }) => {
             </p>
             <p className="m-0">&nbsp;</p>
           </h3>
-        </div>
-        <div className="h-[369px] w-[528px] flex flex-col items-start justify-end pt-0 px-0 pb-[18px] box-border min-w-[528px] max-w-full text-5xl text-darkorange-200 mq750:min-w-full mq1050:flex-1">
-          <div className="self-stretch flex-1 flex flex-col items-start justify-start gap-[23px]">
-            <div className="self-stretch flex flex-row items-start justify-center py-0 pr-5 pl-[21px]">
-              <h2 className="m-0 relative text-inherit font-medium font-inherit mq450:text-lgi">
-                Location of the event
-              </h2>
-            </div>
-            <img
-              className="self-stretch flex-1 relative rounded-xl max-w-full overflow-hidden max-h-full object-cover"
-              loading="lazy"
-              alt=""
-              src="/rectangle-1370@2x.png"
-            />
-          </div>
         </div>
       </div>
     </div>

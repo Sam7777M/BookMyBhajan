@@ -114,7 +114,6 @@ const Footer = ({
               Event and concert
             </div>
             <div className="self-stretch rounded-[45.59px] bg-white box-border flex flex-row items-start justify-start pt-[5px] pb-1 pr-1 pl-[25px] gap-[36.2px] max-w-full z-[1] text-smi-2 text-darkgray-300 border-[2px] border-solid border-whitesmoke-300 mq450:flex-wrap mq450:gap-[18px]">
-              <div className="h-[60.8px] w-[364px] relative rounded-[45.59px] bg-white box-border hidden max-w-full border-[2px] border-solid border-whitesmoke-300" />
               <div className="flex flex-col items-start justify-start pt-[15.2px] px-0 pb-0">
                 <div className="relative z-[1]">Enter your email address..</div>
               </div>
@@ -124,14 +123,14 @@ const Footer = ({
                 sx={{
                   textTransform: "none",
                   color: "#fff",
-                  fontSize: "12.2",
-                  background: "#fdb54e",
+                  fontSize: "12.2px",
+                  background: "#34a853", // Green color
                   borderRadius: "50px",
-                  "&:hover": { background: "#fdb54e" },
+                  "&:hover": { background: "#34a853" }, // Green color on hover
                   height: 46.4,
                 }}
               >
-                Subscibe Now
+                Subscribe Now
               </Button>
             </div>
           </div>
@@ -163,10 +162,9 @@ Footer.propTypes = {
   twitter: PropTypes.string,
   linkedin: PropTypes.string,
   group1: PropTypes.string,
-
-  /** Style props */
   footerAlignSelf: PropTypes.any,
   footerWidth: PropTypes.any,
 };
 
 export default Footer;
+

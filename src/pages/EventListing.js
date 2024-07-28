@@ -536,6 +536,7 @@ const EventListing1 = () => {
                           </div>
                         </div>
                       </div>
+                      
                       <div className="flex-1 flex flex-col items-start justify-start gap-[4px] min-w-[140px]">
                         <div className="self-stretch relative leading-[20px] font-medium">
                           <span>{`End Time `}</span>

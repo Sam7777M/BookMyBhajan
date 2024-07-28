@@ -44,7 +44,7 @@ const LogIn = () => {
         return handleError('email and password are required')
     }
     try {
-        const url = `http://localhost:8000/auth/login`;
+        const url = `https://book-my-bhajan-backend.vercel.app/user/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {

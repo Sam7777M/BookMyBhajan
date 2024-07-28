@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 const Footer = ({ className = "" }) => {
   return (
     <footer
-      className={`self-stretch bg-darkorange-100 flex flex-col items-center justify-start pt-11 px-5 pb-[17px] box-border relative gap-[69px] max-w-full shrink-0 text-left text-lg text-white font-dm-sans mq750:gap-[34px] mq450:gap-[17px] mq450:pt-[29px] mq450:pb-5 mq450:box-border ${className}`}
+      className={`self-stretch bg-darkorange-100 flex flex-col items-center justify-start pt-7 px-5 pb-[50px] box-border relative gap-[69px] max-w-full shrink-0 text-left text-lg text-white font-dm-sans mq750:gap-[34px] mq450:gap-[17px] mq450:pt-[7px] mq450:pb-5 mq450:box-border ${className}`}
+      style={{ marginTop: "-20px" }} // Adjust this value if needed
     >
       <div className="w-[1440px] h-[430px] relative bg-darkorange-100 hidden max-w-full z-[0]" />
       <div className="w-[1240px] flex flex-row items-start justify-between max-w-full gap-[20px] lg:flex-wrap lg:justify-center">
@@ -115,7 +116,7 @@ const Footer = ({ className = "" }) => {
                   sx={{
                     textTransform: "none",
                     color: "#fff",
-                    fontSize: "12.2",
+                    fontSize: "12.2px",
                     background: "#34a853",
                     borderRadius: "50px",
                     "&:hover": { background: "#34a853" },
@@ -123,7 +124,7 @@ const Footer = ({ className = "" }) => {
                     height: 46.4,
                   }}
                 >
-                  Subscibe Now
+                  Subscribe Now
                 </Button>
               </div>
             </div>
@@ -131,7 +132,7 @@ const Footer = ({ className = "" }) => {
         </div>
       </div>
       <img
-        className="w-[50px] h-[39px] absolute !m-[0] top-[43px] left-[104px] z-[2]"
+        className="w-[50px] h-[39px] absolute !m-[0] top-[23px] left-[104px] z-[2]"
         alt=""
         src="/group1.svg"
       />
@@ -154,3 +155,10 @@ Footer.propTypes = {
 };
 
 export default Footer;
+
+
+
+
+
+
+

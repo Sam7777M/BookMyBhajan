@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import Main from "../components/Main";
 import FrameComponent1 from "../components/FrameComponent1";
 import BlogList from "../components/BlogList";
-import Footer from "../components/Footer1";
+import Footer from "../components/Footer";
 
 const LandingDesign = () => {
   return (
@@ -22,15 +22,34 @@ const LandingDesign = () => {
             </div>
           </div>
           <div className="self-stretch grid flex-row items-start justify-start gap-[28.5px] max-w-full grid-cols-[repeat(3,_minmax(257px,_1fr))] text-xl font-dm-sans mq750:grid-cols-[minmax(257px,_1fr)] mq1050:justify-center mq1050:grid-cols-[repeat(2,_minmax(257px,_446px))]">
-            <BlogList
-              postImage="/rectangle-43@2x.png"
-              strategiesToFindYourInner="6 Strategies to Find Your Inner Peace and get Enlightenment for Your Life"
-            />
-            <BlogList
-              postImage="/rectangle-43-1@2x.png"
-              strategiesToFindYourInner="Connecting with God inside us and Asking Ways for better living of Life Values"
-            />
-            <div className="flex flex-col items-start justify-start gap-[20px] max-w-full">
+            <div
+              className="flex flex-col items-start justify-start gap-[20px] max-w-full transition-transform transform hover:scale-95"
+              style={{
+                transition: "transform 0.3s ease",
+              }}
+            >
+              <BlogList
+                postImage="/rectangle-43@2x.png"
+                strategiesToFindYourInner="6 Strategies to Find Your Inner Peace and get Enlightenment for Your Life"
+              />
+            </div>
+            <div
+              className="flex flex-col items-start justify-start gap-[20px] max-w-full transition-transform transform hover:scale-95"
+              style={{
+                transition: "transform 0.3s ease",
+              }}
+            >
+              <BlogList
+                postImage="/rectangle-43-1@2x.png"
+                strategiesToFindYourInner="Connecting with God inside us and Asking Ways for better living of Life Values"
+              />
+            </div>
+            <div
+              className="flex flex-col items-start justify-start gap-[20px] max-w-full transition-transform transform hover:scale-95"
+              style={{
+                transition: "transform 0.3s ease",
+              }}
+            >
               <img
                 className="self-stretch h-[210px] relative rounded-xl max-w-full overflow-hidden shrink-0 object-cover"
                 loading="lazy"
@@ -52,16 +71,17 @@ const LandingDesign = () => {
           </div>
           <div className="self-stretch h-[60px] flex flex-row items-start justify-center py-0 px-5 box-border">
             <Button
-              className="self-stretch w-[182px] shadow-[0px_10px_50px_rgba(61,_55,_241,_0.25)]"
+              className="self-stretch w-[182px] shadow-[0px_10px_30px_rgba(0,_0,_0,_0.25)]" // Updated shadow
               variant="outlined"
               sx={{
                 textTransform: "none",
                 color: "#ff5f17",
-                fontSize: "18",
+                fontSize: "18px",
                 borderColor: "#ff5f17",
                 borderRadius: "50px",
-                "&:hover": { borderColor: "#ff5f17" },
+                "&:hover": { borderColor: "#ff5f17", boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.25)" }, // Updated hover shadow
                 width: 182,
+                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.25)", // Updated shadow
               }}
             >
               Load More
@@ -83,3 +103,4 @@ const LandingDesign = () => {
 };
 
 export default LandingDesign;
+

@@ -2,7 +2,7 @@ import FirstFold3 from "../components/FirstFold3";
 import FrameComponent12 from "../components/FrameComponent12";
 import FrameComponent11 from "../components/FrameComponent11";
 import FrameComponent3 from "../components/FrameComponent3";
-import Footer from "../components/Footer1";
+import Footer from "../components/Footer";
 
 const PerticularEvent = () => {
   return (

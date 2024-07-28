@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import PropTypes from "prop-types";
 
@@ -8,6 +8,18 @@ const FirstFold = ({
   rectangleIconAlignSelf,
   rectangleIconFlex,
 }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll event
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50); // Adjust the scroll threshold as needed
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const firstFold1Style = useMemo(() => {
     return {
       alignSelf: rectangleIconAlignSelf,
@@ -18,73 +30,102 @@ const FirstFold = ({
   return (
     <div
       className={`self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-[71.3px] box-border relative gap-[23.7px] max-w-full text-left text-14xl-6 text-white font-sacramento mq750:pb-[46px] mq750:box-border ${className}`}
-      style={firstFold1Style}
+      style={{
+        ...firstFold1Style,
+        minHeight: '100vh', // Ensure the container fills the viewport height
+        backgroundColor: '#000', // Set your desired background color here
+      }}
     >
-      <div className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px]">
+      <div
+        className="w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px]"
+        style={{ zIndex: 1 }}
+      >
         <img
           className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full object-cover"
           alt=""
           src="/rectangle-12@2x.png"
         />
         <img
-          className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full mix-blend-normal z-[1]"
+          className="absolute h-full w-full top-[0px] right-[0px] bottom-[0px] left-[0px] max-w-full overflow-hidden max-h-full mix-blend-normal z-[2]"
           alt=""
           src="/rectangle-10.svg"
         />
       </div>
-      <header className="self-stretch h-[70.3px] flex flex-row items-start justify-center pt-[25px] px-5 pb-[4.3px] box-border sticky gap-[671px] top-[0] z-[99] max-w-full lg:gap-[335px] mq750:gap-[168px] mq450:gap-[84px]">
-        <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] shadow-[0px_8px_20px_rgba(209,_209,_209,_0.19)] z-[2]" />
-        <div className="w-[50px] flex flex-col items-start justify-start pt-px px-0 pb-0 box-border">
-          <img
-            className="self-stretch h-[39px] relative max-w-full overflow-hidden shrink-0 z-[4]"
-            loading="lazy"
-            alt=""
-            src="/group1.svg"
-          />
+      <header
+        className={`self-stretch h-[71px] flex flex-row items-center justify-between pt-[10px] px-[99px] box-border fixed top-0 left-0 right-0 z-[99] max-w-full text-left text-14xl-6 text-white font-sacramento lg:pl-[49px] lg:pr-[49px] lg:box-border mq750:pl-6 mq750:pr-6 mq750:box-border`}
+        style={{
+          backgroundColor: scrolled ? '#F58021' : 'transparent',
+          transition: 'background-color 0.3s ease, color 0.3s ease',
+        }}
+      >
+        <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] left-[0px] shadow-[0px_8px_20px_rgba(209,_209,_209,_0.19)] z-[2]" />
+        <div className="flex flex-row items-center">
+          <div className="w-[224.9px] flex-1 flex flex-row items-center justify-start gap-[4px] cursor-pointer z-[4]">
+            <img
+              className="h-[33.9px] w-[50px] relative"
+              loading="lazy"
+              alt=""
+              src="/group.svg"
+            />
+            <a
+              className="[text-decoration:none] h-[37.8px] flex-1 relative text-[inherit] inline-block whitespace-nowrap"
+              style={{ position: 'relative', top: '-5px' }} // Adjusted the vertical position
+            >
+              SatsangSeva
+            </a>
+          </div>
         </div>
-        <nav className="m-0 self-stretch w-[515px] flex flex-row items-start justify-between gap-[20px] max-w-full text-left text-base text-white font-dm-sans mq750:hidden">
-          <div className="flex flex-col items-start justify-start pt-2.5 px-0 pb-0">
-            <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[71px] z-[3]">
-              Schedule
-            </a>
-          </div>
-          <div className="flex flex-col items-start justify-start pt-2.5 px-0 pb-0">
-            <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[70px] z-[3]">
-              Speakers
-            </a>
-          </div>
-          <div className="flex flex-col items-start justify-start pt-2.5 px-0 pb-0">
-            <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[47px] z-[3]">
-              Ticket
-            </a>
-          </div>
-          <div className="flex flex-col items-start justify-start pt-2.5 pb-0 pr-3 pl-0">
-            <a className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[62px] z-[3]">
-              Contact
-            </a>
-          </div>
-          <Button
-            className="self-stretch w-[101px] z-[3]"
-            disableElevation
-            variant="outlined"
-            sx={{
-              textTransform: "none",
-              color: "#fff",
-              fontSize: "16",
-              borderColor: "#fff",
-              borderRadius: "50px",
-              "&:hover": { borderColor: "#fff" },
-              width: 101,
-            }}
+        <nav className="flex flex-row items-center gap-[40px] max-w-full text-left text-base text-white font-dm-sans lg:hidden"> {/* Increased gap */}
+          <a
+            className="[text-decoration:none] relative font-medium text-[inherit] whitespace-nowrap cursor-pointer z-[3]"
+            onClick={() => {/* Add click handler here */}}
           >
-            Login
-          </Button>
+            Schedule
+          </a>
+          <a
+            className="[text-decoration:none] relative font-medium text-[inherit] whitespace-nowrap cursor-pointer z-[3]"
+            onClick={() => {/* Add click handler here */}}
+          >
+            Speaker
+          </a>
+          <a
+            className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[111px] whitespace-nowrap z-[3]"
+            onClick={() => {/* Add click handler here */}}
+          >
+            Ticket
+          </a>
+          <a
+            className="[text-decoration:none] relative font-medium text-[inherit] inline-block min-w-[84px] cursor-pointer z-[3]"
+            onClick={() => {/* Add click handler here */}}
+          >
+            Contact
+          </a>
         </nav>
+        <Button
+          className="h-[41px] w-[123.5px] z-[3] ml-[40px]" // Increased margin-left to shift button further right
+          disableElevation
+          variant="outlined"
+          sx={{
+            textTransform: "none",
+            color: 'white',
+            fontSize: "16px",
+            borderColor: 'white',
+            borderRadius: "50px",
+            "&:hover": { borderColor: 'white' },
+            width: 123.5,
+            height: 41,
+            transition: 'color 0.3s ease, border-color 0.3s ease',
+          }}
+          onClick={() => {/* Add click handler here */}}
+        >
+          Login
+        </Button>
       </header>
-      <a className="[text-decoration:none] w-[170.9px] absolute !m-[0] top-[27px] left-[153px] leading-[49px] text-[inherit] inline-block z-[4] mq1050:text-8xl mq450:text-xl">
-        SatsangSeva
-      </a>
-      <div className="w-[1339px] flex flex-row items-start justify-start py-0 px-[76px] box-border max-w-full text-21xl font-montserrat lg:pl-[38px] lg:pr-[38px] lg:box-border">
+     
+      <div
+        className="w-full flex flex-row items-start justify-start py-0 px-[76px] box-border max-w-full text-21xl font-montserrat lg:pl-[38px] lg:pr-[38px] lg:box-border"
+        style={{ paddingTop: '100px' }} // Add padding to avoid hiding behind the navbar
+      >
         <div className="flex-1 flex flex-col items-end justify-start gap-[16px] max-w-full">
           <div className="w-[610px] flex flex-row items-start justify-center py-0 px-5 box-border max-w-full">
             <img
